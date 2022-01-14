@@ -1,0 +1,14 @@
+Cas normal:
+-Test catégorie simple
+-Test avec compatabilité valide et non valide
+-Test avec une imcompatibilité
+-Test avec requirement valide et non valide
+-Test variant d'une catégorie
+
+Cas limite:
+-Test catégorie vide
+-Test Incompatibilité vide
+-Test Requirements vide
+
+Cas d'erreur:
+-Test passer des parametres nulles -> throws NullPointerException
