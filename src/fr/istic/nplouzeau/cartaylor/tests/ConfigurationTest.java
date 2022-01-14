@@ -1,9 +1,6 @@
 package fr.istic.nplouzeau.cartaylor.tests;
 
-import fr.istic.nplouzeau.cartaylor.api.Category;
-import fr.istic.nplouzeau.cartaylor.api.Configuration;
-import fr.istic.nplouzeau.cartaylor.api.Configurator;
-import fr.istic.nplouzeau.cartaylor.api.PartType;
+import fr.istic.nplouzeau.cartaylor.api.*;
 import fr.istic.nplouzeau.cartaylor.engine.CategoryImpl;
 import fr.istic.nplouzeau.cartaylor.engine.ConfigurationImpl;
 import fr.istic.nplouzeau.cartaylor.engine.ConfiguratorImpl;
@@ -15,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Set;
 
 /**
- * Classe de test de Configuration
+ * Classe de test de configurator
  */
 public class ConfigurationTest {
 
@@ -105,57 +102,8 @@ public class ConfigurationTest {
 
     @Test
     void testComplete() {
-        /* check configuration complete et non complete */
         Assertions.assertAll(
                 () -> Assertions.assertTrue(configurator.getConfiguration().isComplete()),
                 () -> Assertions.assertFalse(configurator2.getConfiguration().isComplete()));
-    }
-
-    @Test
-    void testCompleteNotValidIncomp() {
-        /* check configuration complete et non valide */
-        for (Category category : configurator.getCategories()) {
-            if (category.getName().equals("Exterior")) {
-                Set<PartType> parts = configurator.getVariants(category);
-                for (PartType part : parts) {
-                    if (part.getName().equals("XM")) {
-                        configurator.getConfiguration().selectPart(part);
-                    }
-                }
-            }
-        }
-
-        Assertions.assertAll(
-                () -> Assertions.assertTrue(configurator.getConfiguration().isComplete()),
-                () -> Assertions.assertFalse(configurator.getConfiguration().isValid()));
-    }
-
-    @Test
-    void testCompleteNotValidReq() {
-        /* check configuration complete et non valide */
-        for (Category category : configurator.getCategories()) {
-            if (category.getName().equals("Transmission")) {
-                Set<PartType> parts = configurator.getVariants(category);
-                for (PartType part : parts) {
-                    if (part.getName().equals("TC120")) {
-                        configurator.getConfiguration().selectPart(part);
-                    }
-                }
-            }
-        }
-
-        Assertions.assertAll(
-                () -> Assertions.assertTrue(configurator.getConfiguration().isComplete()),
-                () -> Assertions.assertFalse(configurator.getConfiguration().isValid()));
-    }
-    
-    @Test
-    public void TestClear() {
-        configurator.getConfiguration().clear();
-        /* aucune part ne doit être sélectionnée après un clear */
-        for (Category c: configurator.getCategories())
-            Assertions.assertNull(configurator.getConfiguration().getSelectionForCategory(c));
-        Assertions.assertFalse(configurator.getConfiguration().isComplete());
-        Assertions.assertFalse(configurator.getConfiguration().isValid());
     }
 }

@@ -3,15 +3,14 @@ import fr.istic.nplouzeau.cartaylor.api.Category;
 import fr.istic.nplouzeau.cartaylor.api.PartType;
 import fr.istic.nplouzeau.cartaylor.engine.CategoryImpl;
 import fr.istic.nplouzeau.cartaylor.engine.PartTypeImpl;
+import fr.istic.nplouzeau.cartaylor.engine.parts.engines.EG100;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Classe de test de PartType
- */
+
 public class PartTypeTest {
 
     private Category engine;
@@ -21,7 +20,7 @@ public class PartTypeTest {
     @DisplayName("Test de PartType")
     void setUp() {
         engine = new CategoryImpl("Engine");
-        part1 = new PartTypeImpl("EG100", engine);
+        part1 = new PartTypeImpl("EG100", EG100.class, engine);
     }
 
     @Test
@@ -34,13 +33,6 @@ public class PartTypeTest {
     @Test
     @DisplayName("Test de getCategory")
     void testGetCategory() {
-        assertNotNull(part1.getCategory());
-        assertEquals(part1.getCategory(), engine);
-    }
-
-    @Test
-    @DisplayName("Test de getCategory")
-    void itestGetCategory() {
         assertNotNull(part1.getCategory());
         assertEquals(part1.getCategory(), engine);
     }

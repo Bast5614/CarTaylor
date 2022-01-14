@@ -6,14 +6,14 @@ import fr.istic.nplouzeau.cartaylor.api.PartType;
 import java.util.*;
 
 /**
- * Implémentation de la classe Category
+ * Classe d'implémentation de la Category
  */
 public class CategoryImpl implements Category {
 
     private String name;
 
     /**
-     * Constructor
+     * Constructeur
      * @param name nom de la catégorie
      */
     public CategoryImpl(String name) {

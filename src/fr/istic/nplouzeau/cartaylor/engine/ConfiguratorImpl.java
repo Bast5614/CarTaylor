@@ -1,11 +1,15 @@
 package fr.istic.nplouzeau.cartaylor.engine;
 
 import fr.istic.nplouzeau.cartaylor.api.*;
+import fr.istic.nplouzeau.cartaylor.engine.parts.Interiors.*;
+import fr.istic.nplouzeau.cartaylor.engine.parts.Transmissions.*;
+import fr.istic.nplouzeau.cartaylor.engine.parts.engines.*;
+import fr.istic.nplouzeau.cartaylor.engine.parts.exteriors.*;
 
 import java.util.*;
 
 /**
- * Classe d'implémentation de Configurator
+ * Classe d'implémentation deconfigurator
  */
 public class ConfiguratorImpl implements Configurator {
 
@@ -24,12 +28,12 @@ public class ConfiguratorImpl implements Configurator {
         //Implémentation des catégories
         Category catEngine =  new CategoryImpl("Engine");
         Set<PartType> engineParts = new HashSet<>();
-        PartType EG100 = new PartTypeImpl("EG100", catEngine);
-        PartType EG133 = new PartTypeImpl("EG133", catEngine);
-        PartType EG210 = new PartTypeImpl("EG210", catEngine);
-        PartType ED110 = new PartTypeImpl("ED110", catEngine);
-        PartType ED180 = new PartTypeImpl("ED180", catEngine);
-        PartType EH120 = new PartTypeImpl("EH120", catEngine);
+        PartType EG100 = new PartTypeImpl("EG100", EG100.class, catEngine);
+        PartType EG133 = new PartTypeImpl("EG133", EG133.class, catEngine);
+        PartType EG210 = new PartTypeImpl("EG210", EG210.class, catEngine);
+        PartType ED110 = new PartTypeImpl("ED110", ED110.class, catEngine);
+        PartType ED180 = new PartTypeImpl("ED180", ED180.class, catEngine);
+        PartType EH120 = new PartTypeImpl("EH120", EH120.class, catEngine);
         engineParts.add(EG100);
         engineParts.add(EG133);
         engineParts.add(EG210);
@@ -40,12 +44,12 @@ public class ConfiguratorImpl implements Configurator {
 
         Category catTransmission = new CategoryImpl("Transmission");
         Set<PartType> transmissionParts = new HashSet<>();
-        PartType TM5 = new PartTypeImpl("TM5", catTransmission);
-        PartType TM6 = new PartTypeImpl("TM6", catTransmission);
-        PartType TA5 = new PartTypeImpl("TA5", catTransmission);
-        PartType TS6 = new PartTypeImpl("TS6", catTransmission);
-        PartType TSF7 = new PartTypeImpl("TSF7", catTransmission);
-        PartType TC120 = new PartTypeImpl("TC120", catTransmission);
+        PartType TM5 = new PartTypeImpl("TM5", TM5.class, catTransmission);
+        PartType TM6 = new PartTypeImpl("TM6", TM6.class,catTransmission);
+        PartType TA5 = new PartTypeImpl("TA5", TA5.class,catTransmission);
+        PartType TS6 = new PartTypeImpl("TS6", TS6.class,catTransmission);
+        PartType TSF7 = new PartTypeImpl("TSF7", TSF7.class,catTransmission);
+        PartType TC120 = new PartTypeImpl("TC120", TC120.class,catTransmission);
         transmissionParts.add(TM5);
         transmissionParts.add(TM6);
         transmissionParts.add(TA5);
@@ -56,9 +60,9 @@ public class ConfiguratorImpl implements Configurator {
 
         Category catExterior = new CategoryImpl("Exterior");
         Set<PartType> exteriorPart = new HashSet<>();
-        PartType XC = new PartTypeImpl("XC", catExterior);
-        PartType XM = new PartTypeImpl("XM", catExterior);
-        PartType XS = new PartTypeImpl("XS", catExterior);
+        PartType XC = new PartTypeImpl("XC", XC.class,catExterior);
+        PartType XM = new PartTypeImpl("XM", XM.class,catExterior);
+        PartType XS = new PartTypeImpl("XS", XS.class,catExterior);
         exteriorPart.add(XC);
         exteriorPart.add(XM);
         exteriorPart.add(XS);
@@ -66,9 +70,9 @@ public class ConfiguratorImpl implements Configurator {
 
         Category carInterior = new CategoryImpl("Interior");
         Set<PartType> interiorPart = new HashSet<>();
-        PartType IN = new PartTypeImpl("IN", carInterior);
-        PartType IH = new PartTypeImpl("IH", carInterior);
-        PartType IS = new PartTypeImpl("IS", carInterior);
+        PartType IN = new PartTypeImpl("IN", IN.class,carInterior);
+        PartType IH = new PartTypeImpl("IH", IH.class,carInterior);
+        PartType IS = new PartTypeImpl("IS", IS.class,carInterior);
         interiorPart.add(IN);
         interiorPart.add(IH);
         interiorPart.add(IS);

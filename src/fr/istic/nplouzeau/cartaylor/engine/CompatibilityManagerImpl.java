@@ -6,7 +6,7 @@ import fr.istic.nplouzeau.cartaylor.api.PartType;
 import java.util.*;
 
 /**
- * Implementation de compatibilityManager
+ * Classe d'implémentation de CompatibilityManager
  */
 public class CompatibilityManagerImpl implements CompatibilityManager {
 
@@ -14,21 +14,21 @@ public class CompatibilityManagerImpl implements CompatibilityManager {
     private Map<PartType, Set<PartType>> requirements;
 
     /**
-     * Constructor
+     * Constructeur
      */
     public CompatibilityManagerImpl() {
-        incompatibilities = new HashMap<>();
-        requirements = new HashMap<>();
+        incompatibilities = new HashMap<PartType, Set<PartType>>();
+        requirements = new HashMap<PartType, Set<PartType>>();
     }
 
     @Override
     public Set<PartType> getIncompatibilities(PartType reference) {
-        return incompatibilities.getOrDefault(reference, new HashSet<>());
+        return incompatibilities.getOrDefault(reference, new HashSet<PartType>());
     }
 
     @Override
     public Set<PartType> getRequirements(PartType reference) {
-        return requirements.getOrDefault(reference, new HashSet<>());
+        return requirements.getOrDefault(reference, new HashSet<PartType>());
     }
 
     @Override
